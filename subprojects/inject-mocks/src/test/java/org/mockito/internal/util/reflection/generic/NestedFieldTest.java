@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SuppressWarnings("unused")
-public class GenericTypeMatchNestedFieldTest {
+public class NestedFieldTest {
     public static final String DATA_TYPES_CLASS_PREFIX = DataTypes.class.getName() + "$";
 
     private CollectionBox<Integer> integerCollectionBox;
@@ -79,9 +79,9 @@ public class GenericTypeMatchNestedFieldTest {
             String targetFieldName,
             boolean matches)
             throws NoSuchFieldException, ClassNotFoundException {
-        Field sourceField = GenericTypeMatchNestedFieldTest.class.getDeclaredField(sourceFieldName);
+        Field sourceField = NestedFieldTest.class.getDeclaredField(sourceFieldName);
         Field containingField =
-                GenericTypeMatchNestedFieldTest.class.getDeclaredField(containingFieldName);
+                NestedFieldTest.class.getDeclaredField(containingFieldName);
         String className = DATA_TYPES_CLASS_PREFIX + targetClassName;
         Class<?> targetClass = Class.forName(className);
         Field targetField = targetClass.getDeclaredField(targetFieldName);

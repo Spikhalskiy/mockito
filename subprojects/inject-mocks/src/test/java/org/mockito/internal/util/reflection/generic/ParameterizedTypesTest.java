@@ -15,7 +15,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SuppressWarnings("unused")
-public class GenericTypeMatchParameterizedTypesTest {
+public class ParameterizedTypesTest {
 
     private List<Integer> integerList;
     private List<List<Integer>> integerListList;
@@ -61,9 +61,9 @@ public class GenericTypeMatchParameterizedTypesTest {
             String sourceFieldName, String targetFieldName, boolean matches)
             throws NoSuchFieldException {
         Field sourceField =
-                GenericTypeMatchParameterizedTypesTest.class.getDeclaredField(sourceFieldName);
+                ParameterizedTypesTest.class.getDeclaredField(sourceFieldName);
         Field targetField =
-                GenericTypeMatchParameterizedTypesTest.class.getDeclaredField(targetFieldName);
+                ParameterizedTypesTest.class.getDeclaredField(targetFieldName);
         GenericTypeMatch sourceMatch = GenericTypeMatch.ofField(sourceField);
         GenericTypeMatch targetMatch = GenericTypeMatch.ofField(targetField);
         assertEquals(matches, targetMatch.matches(sourceMatch));

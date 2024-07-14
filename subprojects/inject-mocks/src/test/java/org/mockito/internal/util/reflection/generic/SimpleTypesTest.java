@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SuppressWarnings("unused")
-public class GenericTypeMatchSimpleTypesTest {
+public class SimpleTypesTest {
     private Integer integer;
     private Number number;
     private String string;
@@ -27,8 +27,8 @@ public class GenericTypeMatchSimpleTypesTest {
     })
     public void testSimpleTypes(String sourceFieldName, String targetFieldName, boolean matches)
             throws NoSuchFieldException {
-        Field sourceField = GenericTypeMatchSimpleTypesTest.class.getDeclaredField(sourceFieldName);
-        Field targetField = GenericTypeMatchSimpleTypesTest.class.getDeclaredField(targetFieldName);
+        Field sourceField = SimpleTypesTest.class.getDeclaredField(sourceFieldName);
+        Field targetField = SimpleTypesTest.class.getDeclaredField(targetFieldName);
         GenericTypeMatch sourceMatch = GenericTypeMatch.ofField(sourceField);
         GenericTypeMatch targetMatch = GenericTypeMatch.ofField(targetField);
         assertEquals(matches, targetMatch.matches(sourceMatch));

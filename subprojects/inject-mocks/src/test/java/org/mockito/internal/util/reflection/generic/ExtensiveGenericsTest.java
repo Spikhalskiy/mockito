@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SuppressWarnings("unused")
-public class GenericTypeMatchExtensiveGenericsTest {
+public class ExtensiveGenericsTest {
 
     private final Usage1 usage1 = new Usage1();
     private final Usage2<String> usage2 = new Usage2<>();
@@ -42,9 +42,9 @@ public class GenericTypeMatchExtensiveGenericsTest {
             boolean expectedMatch)
             throws ReflectiveOperationException {
         Field sourceField =
-                GenericTypeMatchExtensiveGenericsTest.class.getDeclaredField(sourceFieldName);
+                ExtensiveGenericsTest.class.getDeclaredField(sourceFieldName);
         Field containingField =
-                GenericTypeMatchExtensiveGenericsTest.class.getDeclaredField(targetInstanceName);
+                ExtensiveGenericsTest.class.getDeclaredField(targetInstanceName);
         Field targetField =
                 "base".equals(fieldOfBaseOrSuper)
                         ? containingField.getType().getDeclaredField(targetFieldName)

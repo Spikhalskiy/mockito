@@ -12,7 +12,7 @@ import java.lang.reflect.Field;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SuppressWarnings("unused")
-public class GenericTypeMatchArrayTypesTest {
+public class ArrayTypesTest {
 
     private Integer[] integerArray;
     private String[] stringArray;
@@ -32,8 +32,8 @@ public class GenericTypeMatchArrayTypesTest {
     })
     public void testArrayTypes(String sourceFieldName, String targetFieldName, boolean matches)
             throws NoSuchFieldException {
-        Field sourceField = GenericTypeMatchArrayTypesTest.class.getDeclaredField(sourceFieldName);
-        Field targetField = GenericTypeMatchArrayTypesTest.class.getDeclaredField(targetFieldName);
+        Field sourceField = ArrayTypesTest.class.getDeclaredField(sourceFieldName);
+        Field targetField = ArrayTypesTest.class.getDeclaredField(targetFieldName);
         GenericTypeMatch sourceMatch = GenericTypeMatch.ofField(sourceField);
         GenericTypeMatch targetMatch = GenericTypeMatch.ofField(targetField);
         assertEquals(matches, targetMatch.matches(sourceMatch));
